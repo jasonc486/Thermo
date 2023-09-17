@@ -1,0 +1,40 @@
+"Some Guidance on preparing a Report for HW02: Otto"
+Prof. Sidebotham
+9/13/2023
+
+I was deliberately vague about "what I wanted" for a report, as I want to see what you do on your own,
+but maybe a little too loose.  So here are some ideas.  If you've spent a lot of time already and these
+suggestions seem like I am "moving the goal posts", then it's ok to continue in the direction you started.
+I just want you to verbalize (with support of data/graphics) what you've learned from this exercise.
+Even (especially?) if it's something like, "I've always kind of shied away from programming, but I
+spent a fair bit of time teaching myself a lot of PYTHON tricks, with some guidance from Charlie."
+
+The only real programming I want you to do is two-fold:
+1.  Write a short script to plot power and efficiency against the "basis temperature".
+I want to you demonstrate a good grasp of what is meant by "basis temperature".
+The ideal throttled Otto model assumes a single constant cp value (calorically perfect) for
+all processes that involve a specific heat.  The "basis temperature" is just the temperature for which that
+specific heat value is obtained.
+
+2.  Copy the "ideal_otto(T)" function and paste into a new cell.  Rename it appropriately, and modify it so
+that each process that involves cp uses a fixed value, but that value is different for each process, and
+should be chosen accordingly.  But there's a bit of a catch 22 I was going to let you figure out yourself, but
+I think I'll point it out.  For compression (1-2), for example, T1 is known, but T2 isn't beforehand,
+so how can you use a basis temperature that's the geometric average of T1 and T2?  Grrrr.  Well, using T1
+as the basis will give you a first approximation for T2, then you can recalculate T2 using cp @ (T1 + T2)/2.
+You could set up a while loop until it converges, which should only take a few iterations.
+
+Then to say something about the results, a helpful Table would have headings something like (but 
+feel free to compare other metrics as well):
+MODEL             | Main Engine Power  |  Main Engine Efficiency |  Bottom Cycle Power  | Combined Cycle effy
+-----------------------------------------------------------------------------------------------------------
+cold air          |
+hot air           |
+process dependent |
+
+(NOTE:  we'll talk about the "combined cycle" Monday.  It's in the Week02 slides.)
+
+For a case study (optional?) I thought you might look up specs of an actual SI engine (i.e. My Subaru Forester)
+and run it with appropriate input values.  Then compare the power output and torque (power/speed, in appropriate units)
+
+Oh, look, my LIRR train is pulling into Babylon.  Better pack up my laptop...
